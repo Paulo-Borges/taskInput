@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filho',
@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './filho.html',
   styleUrl: './filho.css',
 })
-export class Filho {}
+export class Filho {
+  @Input() listaRecebida: string[] = [];
+  @Output() removerItem = new EventEmitter<number>();
+
+  onRemover(index: number) {
+    this.removerItem.emit(index);
+  }
+}

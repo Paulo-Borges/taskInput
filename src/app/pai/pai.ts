@@ -8,4 +8,21 @@ import { FilhoTwo } from '../filho-two/filho-two';
   templateUrl: './pai.html',
   styleUrl: './pai.css',
 })
-export class Pai {}
+export class Pai {
+  listaDeTarefas: string[] = [
+    'Estudar Angular',
+    'Estudar .NET',
+    'Estudar C#',
+    'Praticar Typescript',
+  ];
+
+  adicionarItem(novoItem: string) {
+    if (novoItem) {
+      this.listaDeTarefas = [...this.listaDeTarefas, novoItem];
+    }
+  }
+
+  removerItem(index: number) {
+    this.listaDeTarefas = this.listaDeTarefas.filter((_, i) => i !== index);
+  }
+}
