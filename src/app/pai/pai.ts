@@ -10,11 +10,13 @@ import { FilhoTwo } from '../filho-two/filho-two';
 })
 export class Pai {
   listaDeTarefas: string[] = [
-    'Estudar Angular',
-    'Estudar .NET',
-    'Estudar C#',
-    'Praticar Typescript',
+    'Arrumar a casa',
+    'Lavar as louças',
+    'Varrer o quintal',
+    'Jogar o lixo ',
   ];
+
+  tarefaEmAndamento: string | null = null;
 
   adicionarItem(novoItem: string) {
     if (novoItem) {
@@ -23,6 +25,15 @@ export class Pai {
   }
 
   removerItem(index: number) {
+    const tarefaNome = this.listaDeTarefas[index];
     this.listaDeTarefas = this.listaDeTarefas.filter((_, i) => i !== index);
+    this.tarefaEmAndamento = `A Filha finalizou a tarefa: ${tarefaNome}!`;
+  }
+
+  startTask(index: number) {
+    const tarefaNome = this.listaDeTarefas[index];
+    this.tarefaEmAndamento = `A Filha começou a tarefa: ${tarefaNome}!`;
+
+    console.log(this.tarefaEmAndamento);
   }
 }

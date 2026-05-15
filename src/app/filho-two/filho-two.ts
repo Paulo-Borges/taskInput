@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class FilhoTwo {
   @Input() listaRecebida: string[] = [];
+  @Input() tarefaSendoExecutada: string | null = null;
 }

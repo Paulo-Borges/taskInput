@@ -3,23 +3,19 @@
   <div class="mover">
     <input type="text" #itemInput />
     <button (click)="adicionarItem(itemInput.value); itemInput.value = ''">Adicionar</button>
+
+    <!-- @if (tarefaEmAndamento) {
+      <h5>{{ tarefaEmAndamento }}</h5>
+    } -->
   </div>
-  <h4>Ver no Pai</h4>
-
-  <ul>
-    @for (item of listaDeTarefas; track $index) {
-      <li>
-        {{ item }}
-        <button (click)="removerItem($index)">Remover</button>
-      </li>
-    } @empty {
-      <li>Nenhuma tarefa pendente!</li>
-    }
-  </ul>
 
   <hr class="line" />
 
-  <app-filho [listaRecebida]="listaDeTarefas" (removerItem)="removerItem($event)"></app-filho>
+  <app-filho
+    [listaRecebida]="listaDeTarefas"
+    (removerItem)="removerItem($event)"
+    (startTask)="startTask($event)"
+  ></app-filho>
   <hr class="line" />
-  <app-filho-two [listaRecebida]="listaDeTarefas" />
+  <app-filho-two [listaRecebida]="listaDeTarefas" [tarefaSendoExecutada]="tarefaEmAndamento" />
 </div>

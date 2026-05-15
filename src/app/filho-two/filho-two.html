@@ -1,13 +1,17 @@
 <div>
-  <h3>Componente do FilhoTwo</h3>
-  <p>exibir o que vem do pai:</p>
+  <h3>Componente do Mãe</h3>
+  <p>exibir tarefas da filha:</p>
 
-  <ul>
+  <!-- <ul>
     @for (item of listaRecebida; track $index) {
       <li><strong>Item:</strong> {{ item }}</li>
-      <!-- <button (click)="onRemover($index)">Remover</button> -->
+      <button (click)="onRemover($index)">Remover</button>
     } @empty {
       <li>A lista está vazia!</li>
     }
-  </ul>
+  </ul> -->
+
+  @if (tarefaSendoExecutada) {
+    <p>{{ tarefaSendoExecutada }}</p>
+  }
 </div>

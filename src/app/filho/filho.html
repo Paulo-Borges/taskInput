@@ -1,11 +1,14 @@
 <div>
-  <h3>Componente do Filho</h3>
+  <h3>Componente da Filha</h3>
   <p>exibir o que vem do pai:</p>
 
   <ul>
     @for (item of listaRecebida; track $index) {
-      <li><strong>Item:</strong> {{ item }}</li>
-      <button (click)="onRemover($index)">Remover</button>
+      <div class="alinhar">
+        <li><strong>Item:</strong> {{ item }}</li>
+        <button (click)="onStart($index)">Start</button>
+        <button (click)="onFinish($index)">Finish</button>
+      </div>
     } @empty {
       <li>A lista está vazia!</li>
     }
